@@ -1,0 +1,75 @@
+-------------------------------------------------
+----********-----DDL data defination-----*******---- AUTO COMMIT (CHANGES ARE PERMANENT)
+-------------------------------------------------
+--create--- 
+CREATE TABLE TABLE_NAME (IDD NUMBER,USN NUMBER, NAME VARCHAR2(30));
+
+--drop--- 
+DROP TABLE TABLE_NAME;
+
+--alter-- 
+ALTER TABLE TABLE_NAME ADD(COL_NAME COL_DEF); -- TO ADD NEW COLUMN
+ALTER TABLE TABLE_NAME DROP COLUMN COL_NAME;
+ALTER TABLE TABLE_NAME MODIFY(COL_NAME COL_DEF);-- TO MODIFY EXISTING COLUMN
+ALTER TABLE TABLE_NAME RENAME COLUMN OLD_COL_NAME TO NEW_COL_NAME; --RENAME COLUM
+ALTER TABLE OLD_NAME RENAME TO NEW_NAME;
+
+--TRUNCATE--
+TRUNCATE TABLE TABLE_NAME;
+
+
+-------------------------------------------------
+----********-----DML data MANIPULATION-----*******---- NON AUTO COMMIT (CHANGES ARE NOT PERMANENT)
+-------------------------------------------------
+
+--INSERT--
+INSERT INTO TABLE_NAME VALUES(11,'33',300);
+UPDATE TABLE_NAME SET COL_NAME = 1000 WHERE COL_NAME = 'XYZ';
+DELETE FROM TABLE_NAME WHERE COL_NAME = 'XYZ'; -- DELETE ROWS FROM THE TABLE
+DELETE FROM TABLE_NAME -- EVERY DATA WILL BE DELETED SIMILAR TO TRUNCATE
+
+
+
+-------------------------------------------------
+----********-----DCL data CONTROL-----*******----
+-------------------------------------------------
+--GRANT
+GRANT ALL PRIVILEGES TO USER_NAME;
+
+--REVOKE
+REVOKE ALL PRIVILEGES FROM USER_NAME;
+
+
+--- CHECK THE USER-------
+SELECT * FROM ALL_USERS;
+
+SELECT * FROM DBA_USERS;
+
+SELECT *
+FROM USER_USERS;
+
+
+-------------------------------------------------
+----********-----TCL TRANSACTIONS CONTROL-----*******----
+-------------------------------------------------
+--COMMIT --PERMANENTLY DELETE
+DELETE FROM TABLE_NAME WHERE COL_NAME = 'XYZ'; -- DELETE ROWS FROM THE TABLE
+COMMIT;
+
+--ROLLBACK --UNDO
+DELETE FROM TABLE_NAME WHERE COL_NAME = 'XYZ'; -- DELETE ROWS FROM THE TABLE
+ROLLBACK;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
